@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Page</title>
+<style>
+
+.carousel-container {
+overflow: hidden;
+width: 100%;
+max-width: 600px; 
+margin: 0 auto;
+}
+
+.carousel-wrapper {
+  display: flex; 
+  transition: transform 0.5s ease; 
+}
+
+.carousel-item {
+  min-width: 100%; 
+  box-sizing: border-box;
+}
+
+.carousel-transition {
+  transform: translateX(-100%);
+}
+</style>
+</head>
+<body>
+<!-- Left Section - Carousel -->
+<div class="carousel-container">
+<div class="carousel-wrapper">
+<!-- Add multiple items for each slide in the carousel -->
+<div class="carousel-item">
+<!-- Content for Slide 1 -->
+<img src="slide1.jpg" alt="Slide 1">
+</div>
+<div class="carousel-item">
+<!-- Content for Slide 2 -->
+<img src="slide2.jpg" alt="Slide 2">
+</div>
+<div class="carousel-item">
+<!-- Content for Slide 3 -->
+<img src="slide3.jpg" alt="Slide 3">
+</div>
+
+</div>
+</div>
+<script>
+const carouselWrapper = document.querySelector('.carousel-wrapper');
+function nextSlide() {
+  // Move the slides to the left
+  carouselWrapper.classList.add('carousel-transition');
+}
+
+function transitionEnd() {
+  // Remove transition class after transition ends
+  carouselWrapper.classList.remove('carousel-transition');
+
+  // Move the first slide to the end
+  const firstSlide = carouselWrapper.children[0];
+  carouselWrapper.appendChild(firstSlide);
+
+  // Reset the transform property
+  carouselWrapper.style.transform = 'translateX(0)';
+}
+
+// Attach event listeners
+carouselWrapper.addEventListener('transitionend', transitionEnd);
+setInterval(nextSlide, 3000); // Automatically move to the next slide every 3 seconds
+</script>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Page</title>
+<style>
+
+.right-section-container {
+width: 100%;
+max-width: 400px
+margin: 0 auto;
+padding: 20px;
+box-sizing: border-box;
+}
+
+.product-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+.quantity-selector {
+  margin-bottom: 20px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+
+.accordion {
+  margin-top: 20px;
+}
+
+.accordion-item {
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.accordion-item-header {
+  background-color: #f1f1f1;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.accordion-item-content {
+  display: none;
+  padding: 10px;
+}
+
+
+.margin-bottom-4 {
+  margin-bottom: 1rem;
+}
+</style>
+</head>
+<body>
+<!-- Right Section - Title, Quantity Selector, Buttons, Accordion Items -->
+<div class="right-section-container">
+<!-- Title -->
+<div class="product-title margin-bottom-4">Product Title</div>
+<!-- Quantity Selector -->
+<div class="quantity-selector margin-bottom-4">
+  <label for="quantity">Quantity:</label>
+  <input type="number" id="quantity" name="quantity" min="1" value="1">
+</div>
+
+<!-- Buttons -->
+<div class="action-buttons">
+  <button class="button">Add to Cart</button>
+  <button class="button">Buy Now</button>
+</div>
+
+<!-- Accordion -->
+<div class="accordion">
+  <!-- Description Accordion Item -->
+  <div class="accordion-item">
+    <div class="accordion-item-header" onclick="toggleAccordion('description')">Description</div>
+    <div class="accordion-item-content" id="description-content">
+      <p>Description content goes here.</p>
+    </div>
+  </div>
+
+  <!-- Harvest Accordion Item -->
+  <div class="accordion-item">
+    <div class="accordion-item-header" onclick="toggleAccordion('harvest')">Harvest</div>
+    <div class="accordion-item-content" id="harvest-content">
+      <p>Harvest content goes here.</p>
+    </div>
+  </div>
+
+  <!-- Use Case Accordion Item -->
+  <div class="accordion-item">
+    <div class="accordion-item-header" onclick="toggleAccordion('use-case')">Use Case</div>
+    <div class="accordion-item-content" id="use-case-content">
+      <p>Use Case content goes here.</p>
+    </div>
+  </div>
+</div>
+</div>
+<script>
+// JavaScript function to toggle accordion items
+function toggleAccordion(item) {
+const content = document.getElementById(${item}-content);
+content.style.display = content.style.display === 'block' ? 'none' : 'block';
+}
+</script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Page</title>
+<style>
+
+.right-section-container {
+width: 100%;
+max-width: 400px; 
+margin: 0 auto;
+padding: 20px;
+box-sizing: border-box;
+}
+
+.product-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+.quantity-selector {
+  margin-bottom: 20px;
+}
+
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+
+.accordion {
+  margin-top: 20px;
+}
+
+.accordion-item {
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.accordion-item-header {
+  background-color: #f1f1f1;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.accordion-item-content {
+  display: none;
+  padding: 10px;
+}
+
+.margin-bottom-4 {
+  margin-bottom: 1rem;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .right-section-container {
+    max-width: 100%; 
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  .product-title {
+    font-size: 20px; 
+  }
+}
+
+
+@media only screen and (min-width: 901px) {
+  .right-section-container {
+    max-width: 600px; 
+  }
+}
+</style>
+</head>
+<body>
+<!-- Right Section - Title, Quantity Selector, Buttons, Accordion Items -->
+<div class="right-section-container">
+<!-- Title -->
+<div class="product-title margin-bottom-4">Product Title</div>
+<!-- Quantity Selector -->
+<div class="quantity-selector margin-bottom-4">
+  <label for="quantity">Quantity:</label>
+  <input type="number" id="quantity" name="quantity" min="1" value="1">
+</div>
+
+<!-- Buttons -->
+<div class="action-buttons">
+  <button class="button">Add to Cart</button>
+  <button class="button">Buy Now</button>
+</div>
+
+<!-- Accordion -->
+<div class="accordion">
+  <!-- Description Accordion Item -->
+  <div class="accordion-item">
+    <div class="accordion-item-header" onclick="toggleAccordion('description')">Description</div>
+    <div class="accordion-item-content" id="description-content">
+      <p>Description content goes here.</p>
+    </div>
+  </div>
+
+  <!-- Harvest Accordion Item -->
+  <div class="accordion-item">
+    <div class="accordion-item-header" onclick="toggleAccordion('harvest')">Harvest</div>
+    <div class="accordion-item-content" id="harvest-content">
+      <p>Harvest content goes here.</p>
+    </div>
+  </div>
+
+  <!-- Use Case Accordion Item -->
+  <div class="accordion-item">
+    <div class="accordion-item-header" onclick="toggleAccordion('use-case')">Use Case</div>
+    <div class="accordion-item-content" id="use-case-content">
+      <p>Use Case content goes here.</p>
+    </div>
+  </div>
+</div>
+</div>
+<script>
+// JavaScript function to toggle accordion items
+function toggleAccordion(item) {
+const content = document.getElementById(${item}-content);
+content.style.display = content.style.display === 'block' ? 'none' : 'block';
+}
+</script>
+</body>
+</html>
